@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTRATION</title>
+</head>
+{% block content %}
+<body style="background-color:yellow;">
+<p style="color:darkblue;text-align:center;font-family:cursive;border-style: groove;background-color: yellowgreen;font-size: xx-large;"><marquee>REGISTRATION FORM</marquee></p><br>
+<p style="color:darkblue;text-align:center;font-family:cursive;">ENTER YOUR CREDENTIALS </p><br><br>
+<form style="text-align: center;font-size: larger;" action="reg" method = "POST"> {%csrf_token%}
+	FIRST NAME :<input type="text" name="firstname"><br>
+	<br>
+	LAST NAME : <input type="text" name="lastname">
+	<br> <br>
+	ADHAAR NUMBER: <input type="number" name="adhaar"><br><br>
+	MOBILE NUMBER:<input type="number" name="mobile"><br><br>
+	MALE<input type="radio">
+	FEMALE<input type="radio">
+	OTHERS<input type="radio"><br><br>
+	<input type="submit" value="SUBMIT" onclick="location.href='user.html'" formaction="us"><br><br>
+</form>
+</body>
+</html>
+{% endblock %}

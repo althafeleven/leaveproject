@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEAVE APPLY</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+{% block content %}
+<body>
+<form action="empleave" method ="POST">{% csrf_token %}
+    <table style="width:100%;margin-right:auto;margin-left:auto;margin-top:50px;">
+        <tr></tr>
+        <tr>
+            <td></td>
+            <td> <h4 style="text-align:left;"><u>APPLY FOR LEAVE</u></h4></td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <td style="float:right;">NAME:</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td style="float:right;">STARTING DATE:</td>
+            <td><input type="text" name="startingdate"></td>
+        </tr>
+        <tr>
+            <td style="float:right;">ENDING DATE:</td>
+            <td><input type="text" name="endingdate"></td>
+        </tr>
+        <tr>
+            <td style="float:right;">REASON OF LEAVE : </td>
+            <td><input type="text" name="reason"></td>
+        </tr>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+            <td></td>
+        <td>
+            <br>
+        <input type = "submit" class="btn btn-success" value="submit">
+        
+        </td>
+        </td>
+        </tr>
+        <tr><td></td><td>
+            <div>
+        {% for message in messages %}
+            <h3>{{message}}</h3>
+        {% endfor %}
+        </div>
+        </td></tr>
+    </table>
+</form>
+</body>
+</html>
+{% endblock %}

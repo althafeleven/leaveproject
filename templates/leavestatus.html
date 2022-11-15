@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEAVE STATUS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+{% block content %}
+<body>
+<h1>EMPLOYEE LEAVE STATUS</h1>
+<form action = "leavestatus" method ="POST">{% csrf_token %}
+    <table id="leave" style = "width:100%;margin-right:auto;margin-left:auto;margin-top:50px;">
+        <tr>
+            <th>EMPLOYEE NAME</th>
+            <th>JOINING DATE</th>
+            <th>ENDING DATE</th>
+            <th>REASON OF LEAVE</th>
+            <th>STATUS</th>
+        </tr>
+        {% for i in all %}
+        <tr>
+            <th>{{i.name}}</th>
+            <th>{{i.startingdate}}</th>
+            <th>{{i.endingdate}}</th>
+            <th>{{i.reason}}</th>
+            <th>{{i.status}}</th>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+<input type = "button" class="btn btn-success" id = "btnDelete" value="Delete Rows" onclick = "DeleteRows()" />
+<script type="text/javascript">
+    function DeleteRows() {
+        var rowCount = leave.rows.length;
+        for (var i = rowCount - 1; i > 0; i--) {
+            leave.deleteRow(i);
+        }
+    }
+</script>
+</body>
+</html>
+{% endblock %}

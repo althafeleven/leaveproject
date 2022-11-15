@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    <title>ADMIN DASHBOARD</title>
+
+</head>
+{% block content %}
+<body>
+    <div class="container-fluid" style="background-color:#F44336;color:#fff;height:100px;">
+        <h1 style="text-align:center">ADMIN DASHBOARD</h1>
+        
+      </div>
+
+      <form action="along" method="GET">{%csrf_token%}
+        
+        <section>
+            <nav>
+                <ul>
+                    
+                    <li><a href="leavedetails">EMPLOYEE LEAVE DETAILS </a></li><br>
+                </ul>
+            </nav>
+        </section>
+    </form>
+</body>
+</html>
+{% endblock %}

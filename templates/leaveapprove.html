@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LEAVE APPROVAL</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+{% block content %}
+<body>
+<h4 style="text-align:center;"><u>APPROVE LEAVE</u></h4>
+{% for i in all %}
+<form style="text-align:center;" action="/leaveapprove/{{i.id}}/" method="POST">{% csrf_token %}
+    <section>
+        <st>
+    USER ID : <input type = "text" name="userid" value = "{{i.userid}}" /> <br><br>
+    NAME : <input type = "text" name="name" value="{{i.name}}" /> <br><br>
+    STARTING DATE : <input type = "text" name="startingdate" value="{{i.startingdate}}" /> <br><br>
+    ENDING DATE : <input type = "text" name="endingdate" value="{{i.endingdate}}" /> <br><br>
+    REASON : <input type = "text" name="reason" value="{{i.reason}}" /> <br><br>
+    STATUS : <input type = "text" name="status" value="Approved" /> <br><br>
+    <form action="/leaveapprove/{{i.id}}/" method="post">{% csrf_token %}
+        <input type = "submit" class="btn btn-success" value="APPROVE">
+    </form>
+        </st>
+    </section>
+</form>
+    {% endfor %}
+</form>
+<div>
+    {% for message in messages %}
+    <h4 style = "text-align:center">{{message}}</h4>
+{% endfor %}
+</div>
+</body>
+</html>
+{% endblock %}
